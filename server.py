@@ -23,8 +23,10 @@ def sent_analyzer():
 
     response = sentiment_analyzer(text_to_analyze)
 
-    return f"The given text has been identified as {response['label']} with a score of {response['score']}."
-
+    if response['score'] != "None":
+        return f"The given text has been identified as {response['label']} with a score of {response['score']}."
+    else:
+        return "Invalid Input. Try again"
 
 @app.route("/")
 def render_index_page():
